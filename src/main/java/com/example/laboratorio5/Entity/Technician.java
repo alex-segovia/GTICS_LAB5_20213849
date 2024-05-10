@@ -1,10 +1,7 @@
 package com.example.laboratorio5.Entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,11 +28,13 @@ public class Technician {
 
     @NotBlank(message = "Debes ingresar un DNI")
     @Size(min = 8, max = 8, message = "El DNI debe tener 8 dígitos")
+    @Digits(integer = 8, fraction = 0, message = "El DNI debe ser un número entero")
     @Column(name = "Dni", nullable = false, length = 8)
     private String dni;
 
     @NotBlank(message = "Debes ingresar un teléfono")
     @Size(min = 9,max = 9, message = "El teléfono debe tener 9 dígitos")
+    @Digits(integer = 9, fraction = 0, message = "El DNI debe ser un número entero")
     @Column(name = "Phone", nullable = false, length = 9)
     private String phone;
 
